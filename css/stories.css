@@ -37,3 +37,34 @@
 .story-user {
   display: block;
 }
+
+
+
+/* .star {
+  font-size: 25px;
+  color: gold;
+} */
+/* Style the star icon as a block element */
+label i {
+  display: block;
+  font-size: 24px;
+  color: #ccc;
+}
+
+/* Style the checkmark icon as a block element */
+label i:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 20px;
+  color: rgb(214, 201, 201);
+  display: block;
+}
+
+input[type="checkbox"]:checked+i {
+  color: rgb(26, 25, 25);
+}
+/* Show the checkmark icon when the checkbox is checked */
+/* input[type="checkbox"]:checked+i:before {
+  content: "\f00c";
+} */

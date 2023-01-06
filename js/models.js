@@ -212,4 +212,16 @@ class User {
       return null;
     }
   }
+
+
+  async addFavorites(username,storyId){
+    try{
+      const result = await axios.post(`${BASE_URL}/users/${username}/favorites/${storyId}`,{
+        token: currentUser.loginToken})
+        console.log(result)
+    }catch(err){
+      console.log(err)
+    }
+  }
 }
+

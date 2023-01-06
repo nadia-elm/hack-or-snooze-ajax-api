@@ -22,6 +22,8 @@ const $newStoryForm = $("#newStoryForm")
 const $Author = $("#Author")
 const $Title = $("#Title")
 const $url = $("#url")
+const $userFavorites = $("#userFavorites")
+const $star = $(".far fa-star")
 
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
@@ -50,6 +52,11 @@ async function start() {
   // if we got a logged-in user
   if (currentUser) updateUIOnUserLogin();
 }
+
+
+$(".star.glyphicon").click(function () {
+  $(this).toggleClass("glyphicon-star glyphicon-star-empty");
+});
 
 // Once the DOM is entirely loaded, begin the app
 
