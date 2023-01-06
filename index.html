@@ -37,26 +37,45 @@
 
 <!-- top navigation bar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary" >
-  <div>
-    <a class="navbar-brand" href="#" id="nav-all">Hack or Snooze</a>
-  </div>
-  <div class="nav-right">
-    <a class="nav-link" href="#" id="nav-login">login/signup</a>
-  </div> 
-  <div id="navForLoggedIn" class="hidden">
-    <ul class="nav justify-content-center">
-      <li id="submit"><a class="nav-link " href="#">submit</a></li>  
-      <li id="favorites"><a class="nav-link" href="#">favorites</a></li>
-      <li id="my stories" class="nav-item"><a class="nav-link" href="#">my stories</a></li>
-    </ul>
-  </div>
 
-  <ul class="nav justify-content-end">
-    <li><a class="nav-link" href="#" id="nav-user-profile"></a></li>  
-    <li><a class="hidden" class="nav-link" id="nav-logout" href="#"><small>(logout)</small></a></li> 
-  </ul>
+    <div>
+        <a class="navbar-brand" href="#" id="nav-all">Hack or Snooze</a>
+    </div>
+
+    <div class="nav-right">
+        <a class="nav-link" href="#" id="nav-login">login/signup</a>
+    </div> 
+
+    <div id="navForLoggedIn" class="hidden">
+      <ul class="nav justify-content-center">
+          <li id="submit"><a class="nav-link " href="#">submit</a></li>  
+          <li id="favorites"><a class="nav-link" href="#">favorites</a></li>
+          <li id="my stories" class="nav-item"><a class="nav-link" href="#">my stories</a></li>
+      </ul>
+    </div>
+
+      <ul class="nav justify-content-end">
+        <li><a class="nav-link" href="#" id="nav-user-profile"></a></li>  
+        <li><a class="hidden" class="nav-link" id="nav-logout" href="#"><small>(logout)</small></a></li> 
+     </ul>
 </nav>
+<!-- new Stories form -->
+<form  id="newStoryForm" class="hidden">
+    <div class="mb-3">
+      <label for="Author" class="form-label">Author</label>
+      <input type="text" class="form-control" id="Author">
+    </div>
+    <div class="mb-3">
+      <label for="Title" class="form-label">Titles</label>
+      <input type="text" class="form-control" id="Title">
+    </div>
+    <div class="mb-3">
+      <label for="URL" class="form-label">URL</label>
+      <input type="text" class="form-control" id="url">
+    </div>
+    <button>Submit</button>
 
+</form>
 <!-- area for stories (all stories, user stories, favorites) -->
 <section class="stories-container container">
 

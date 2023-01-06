@@ -50,3 +50,23 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+ async function createNewStory(){
+  let author = $Author.val();
+  let title = $Title.val();
+  let url = $url.val();
+  let username = currentUser.username
+  let storyData = {title,  author, url, username}
+  // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJsdWUgdGhlIGNhdCIsImlhdCI6MTY3MzAwNTM3MX0.8xHIq0HcR5xa9kpU9FgfHnr6TOWeNve0S7stIAy-lY0"
+  const res = await storyList.addStory(currentUser,storyData)
+  
+
+
+}
+
+
+$newStoryForm.on('submit', function(e){
+  e.preventDefault();
+  createNewStory()
+})
+  

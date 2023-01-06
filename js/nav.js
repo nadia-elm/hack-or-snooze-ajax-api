@@ -38,3 +38,8 @@ function updateNavOnLogin() {
   $signupForm.hide();
 }
 
+function showNewStoryForm(){
+  $newStoryForm.removeClass("hidden")
+}
+$submit.on('click',showNewStoryForm)
+
