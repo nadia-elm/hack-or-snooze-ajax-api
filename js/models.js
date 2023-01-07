@@ -88,6 +88,7 @@ class StoryList {
     const addedStory = new Story(response.data.story);
     // add the new Story instance to the 'stories' array
     this.stories.unshift(addedStory);
+   
   // return the new Story instance
   return addedStory
   }
@@ -218,7 +219,7 @@ class User {
     try{
       const result = await axios.post(`${BASE_URL}/users/${username}/favorites/${storyId}`,{
         token: currentUser.loginToken})
-        console.log(result)
+        return result
     }catch(err){
       console.log(err)
     }

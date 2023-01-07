@@ -18,6 +18,7 @@ const $submit = $("#submit");
 const $favorites = $("#favorites");
 const $myStories = $("#myStories")
 const $newStoryForm = $("#newStoryForm")
+const $favContainer= $("#favContainer");
 
 const $Author = $("#Author")
 const $Title = $("#Title")

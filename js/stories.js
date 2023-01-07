@@ -21,25 +21,21 @@
    * Returns the markup for the story.
    */
 
-  {
+  
     /* <i class='far fa-star'></i>
  <span>
             <input class="blue" type="checkbox" id="check" name="1">
            <label for="check">
            </label>
            </span> */
-  }
+  
 
   function generateStoryMarkup(story) {
     // console.debug("generateStoryMarkup", story);
     const hostName = story.getHostName();
     return $(`
-                 <label for="checkbox-id">
-                  <input type="checkbox" value="" id="checkbox-id">
-                      <i class="fas fa-star"></i>
-                  </label>
-
-            <li id="${story.storyId}">
+            <li id="${story.storyId}"><span <i class="fas fa-star">
+            </i></span>
            
               <a href="${story.url}" target="a_blank" class="story-link">
                 ${story.title}
@@ -54,45 +50,50 @@
     `);
   }
 
- $allStoriesList.on('click', function(e){
-  e.preventDefault()
-  if($(e.target) .is('.fa-star')){
+  async function addFav(storyId){
+    const result = await currentUser.addFavorites(currentUser.username,storyId)
+    console.log(result)
+  }
+    $allStoriesList.on('click', function(e){
+    e.preventDefault()
+    if($(e.target) .is('.fa-star')){
     const $closestLi = $(e.target).closest('li');
     let storyId= $closestLi.attr('id');
     console.log(storyId)
+    addFav(storyId)
+    
+     const story = storyList.stories.find((s) => s.storyId === storyId);
+     currentUser.favorites.push(story)
+    }
+  })
+
+
+  
+
+
+
+function displayFavorites(){
+  $userFavorites.empty();
+  if(currentUser.favorites.length === 0){
+    $userFavorites.append("<h4> no favorites added !</h4>")
+  }else{
+    for (let story of currentUser.favorites){
+      const $story = generateStoryMarkup(story)
+      $userFavorites.append($story)
+    }
+
   }
+}
 
- })
+$favorites.on('click',function(e){
+  $favContainer.removeClass('hidden')
+  displayFavorites()
+  
+})
 
 
 
-
-
-
-
-  // $(".fas fa-star").on("click", function (e) {
-  //   e.preventDefault();
-  //   console.log(e.target);
-  // });
-
-  // $("#checkbox-id").click(function (e) {
-  //   e.preventDefault();
-  //   console.log("heyyy");
-  //   // code to be executed when the checkbox is clicked
-  // });
-
-  // $allStoriesList.on('click', function(e){
-  //    e.preventDefault()
-  //    console.log(e.target.type)
-  // //   if(e.target.classList.contains('blue')){
-  // //     console.log(e.parentElement)
-
-  //   })
-
-  //  let btn = document.querySelector('#check')
-  // btn.addEventListner('click',function(e){
-  // console.log(e)
-  // })
+ 
 
   /** Gets list of stories from server, generates their HTML, and puts on page. */
 
