@@ -25,6 +25,8 @@ const $Title = $("#Title")
 const $url = $("#url")
 const $userFavorites = $("#userFavorites")
 const $star = $(".far fa-star")
+const $ownStories= $("#ownStories");
+const $userStories = $("#userStories");
 
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After

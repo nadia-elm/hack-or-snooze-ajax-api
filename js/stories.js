@@ -123,6 +123,7 @@ $favorites.on('click',function(e){
     $newStoryForm.trigger("reset");
     $newStoryForm.hide();
     $allStoriesList.prepend($story);
+    $userStories.append($story);
   }
 
   $newStoryForm.on("submit", function (e) {
@@ -134,6 +135,13 @@ $favorites.on('click',function(e){
     e.preventDefault();
     $userFavorites.removeClass("hidden");
   });
+
+
+  $myStories.on('click',function(e){
+    e.preventDefault()
+    
+     $ownStories.removeClass('hidden')
+  })
 
 
 
